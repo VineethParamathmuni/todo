@@ -16,13 +16,16 @@ export default function Searchbox() {
   }
 
   function deleteTask(index) {
-    setTasks(tasks.filter((_, i) => i !== index));
+    if(window.confirm("Are you sure you want to delete")){
+      setTasks(tasks.filter((_, i) => i !== index));
+      setIsEditing(false);
+    }    
   }
 
   function editStart(index){
     setIsEditing(true);
     setEditIndex(index);
-    setCurrentTask(tasks[index])
+    setCurrentTask(tasks[index])    
   }
 
   function editTask(){
@@ -51,7 +54,7 @@ export default function Searchbox() {
       {tasks.map((task, index) => (
         <p key={index}>
           {task}
-          <button onClick={() => {deleteTask(index)}} disabled={isEditing ? true : false}>
+          <button onClick={() => {deleteTask(index)}} >
             Delete
           </button>
           <button onClick={() => {editStart(index)}}>Edit</button>
