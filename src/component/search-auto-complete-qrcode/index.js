@@ -44,7 +44,7 @@ export default function SearchAutoComplete() {
   async function fetchListOfUsers() {
     try {
       setLoading(true);
-      const response = await fetch("http://dummyjson.com/users");
+      const response = await fetch("https://dummyjson.com/users");
       const data = await response.json();
       if (data && data.users && data.users.length) {
         setLoading(false);
