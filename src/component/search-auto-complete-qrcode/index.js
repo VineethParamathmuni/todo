@@ -7,6 +7,7 @@ export default function SearchAutoComplete() {
   const [click, setClick] = useState(false);
   const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState([]);
+  // eslint-disable-next-line
   const [error, setError] = useState(null);
   const [searchParam, setSearchParam] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
