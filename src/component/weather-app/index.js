@@ -12,15 +12,15 @@ export default function Weather() {
     try {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${param}&appid=93204d1dace96a616132b718b3e56200`
-      );
-      if(!response){
-        return;
-      }
+      );      
       const data = await response.json();
       if (data) {       
         setLoading(false);
         setWeatherData(data);
-      }     
+      }   
+      else{
+        return;
+      }  
     } catch (e) {
       setLoading(false);
       console.log(e);

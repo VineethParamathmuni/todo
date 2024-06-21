@@ -35,10 +35,9 @@ export default function SearchAutoComplete() {
           : [];
       setFilteredUsers(filteredData);
       setShowDropdown(true);
-      
     } else {
       setShowDropdown(false);
-    }    
+    }
   }
 
   async function fetchListOfUsers() {
@@ -49,7 +48,7 @@ export default function SearchAutoComplete() {
       if (data && data.users && data.users.length) {
         setLoading(false);
         setUsers(data.users.map((userItem) => userItem.firstName));
-        setError(null);            
+        setError(null);
       }
     } catch (error) {
       setLoading(false);
@@ -69,27 +68,31 @@ export default function SearchAutoComplete() {
       ) : (
         <>
           <h1>QR Code Generator</h1>
-          <input
-            name="search-users"
-            placeholder="Search users here..."
-            value={searchParam}
-            onChange={filter}
-          />
-          <button
-            onClick={generateQrCode}
-            disabled={searchParam.length !== 0 ? false : true}
-          >
-            Generate
-          </button>
+          {!click && (
+            <>
+              <input
+                name="search-users"
+                placeholder="Search users here..."
+                value={searchParam}
+                onChange={filter}
+              />{" "}
+              <button
+                onClick={generateQrCode}
+                disabled={searchParam.length !== 0 ? false : true}
+              >
+                Generate
+              </button>
+            </>
+          )}
         </>
       )}
       {showDropdown && (
-        <Suggestions handleClick={handleClick} data={filteredUsers}/>
+        <Suggestions handleClick={handleClick} data={filteredUsers} />
       )}
       <br />
       {click && (
         <>
-          <QRCode id="qr-code-value" value={qrCode} size={200} bgColor="grey" />
+          <QRCode id="qr-code-value" value={qrCode} size={150} bgColor="grey"/>
           <br />
           <button
             onClick={() => {
