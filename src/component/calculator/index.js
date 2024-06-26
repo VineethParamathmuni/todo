@@ -2,7 +2,7 @@ import { useState } from "react";
 export default function Calci() {
   const [input, setInput] = useState();
   const [result, setResult] = useState(0);
-
+  
   const styling = {
     color: "white",
     backgroundColor: "black",
@@ -45,7 +45,7 @@ export default function Calci() {
         <button
           onClick={addInput}
           style={styling}
-          disabled={input ? false : true}
+          disabled={input ? (false) : (true)}
         >
           Add
         </button>
@@ -82,7 +82,7 @@ export default function Calci() {
       <div>
         <p value={result}>
           <b>Result is </b>
-          {result}
+          <span>{result}</span>          
         </p>
       </div>
     </>

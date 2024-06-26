@@ -71,7 +71,7 @@ export default function SearchAutoComplete() {
           {!click && (
             <>
               <input
-                name="search-users"
+                name="search-users"               
                 placeholder="Search users here..."
                 value={searchParam}
                 onChange={filter}
